@@ -1,0 +1,5 @@
+# CNN Image Classification Pipeline
+
+End-to-end training pipeline for image classification with CNN model.
+
+Developed as a [DL-1 course assignment](https://www.kaggle.com/competitions/bhw-1-dl-2025-2026) (HSE, 2025–2026).
