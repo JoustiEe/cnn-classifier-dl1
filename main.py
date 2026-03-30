@@ -938,8 +938,8 @@ if use_swa:
         swa_model = AveragedModel(model.module, device)
     else:
         swa_model = AveragedModel(model, device)
-    swa_start = 161
-    swa_lr = 0.005
+    swa_start = 141
+    swa_lr = 0.01
     swa_scheduler = SWALR(
         optimizer,
         swa_lr=swa_lr,
