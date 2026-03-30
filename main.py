@@ -130,9 +130,11 @@ def get_data(batch_size, transform_train, transform_test, use_DDP, drop_last):
     torch.manual_seed(0)
     np.random.seed(0)
 
-    trainvalset = Dataset(path_str=f'{data_dir_path}/trainval', transform=transform_train, labels_path=f'{data_dir_path}/labels.csv', images_df_path=f'{data_dir_path}/trainval_df/trainval_images.pt')
+    # trainvalset = Dataset(path_str=f'{data_dir_path}/trainval', transform=transform_train, labels_path=f'{data_dir_path}/labels.csv', images_df_path=f'{data_dir_path}/trainval_df/trainval_images.pt')
+    trainvalset = Dataset(path_str=f'{data_dir_path}/trainval', transform=transform_train, labels_path=f'{data_dir_path}/labels.csv')
 
-    testset = Dataset(path_str=f'{data_dir_path}/test', transform=transform_test, images_df_path=f'{data_dir_path}/test_df/test_images.pt')
+    # testset = Dataset(path_str=f'{data_dir_path}/test', transform=transform_test, images_df_path=f'{data_dir_path}/test_df/test_images.pt')
+    testset = Dataset(path_str=f'{data_dir_path}/test', transform=transform_test)
 
     if test_size != 0:
         train_idx, valid_idx = train_test_split(np.arange(len(trainvalset)), test_size=test_size,
@@ -806,7 +808,8 @@ submission_dir = '.'
 test_size = 0.1
 
 submit = False
-checkpoint_name = 'WideResNet-28-10'
+# checkpoint_name = 'WideResNet-28-10'
+checkpoint_name = None
 
 use_float16 = True
 use_compile = True
